@@ -68,31 +68,31 @@ export const Repositories = styled.div`
     & + a {
       margin-top: 16px;
     }
-  }
 
-  img {
-    width: 64px;
-    height: 64px;
-    border-radius: 50%;
-  }
-
-  div {
-    margin-left: 16px;
-
-    strong {
-      font-size: 20px;
-      color: #3d3d3d;
+    img {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
     }
 
-    p {
-      font-size: 18px;
-      color: #a8a8b3;
-      margin-top: 4px;
-    }
-  }
+    div {
+      margin-left: 16px;
 
-  svg {
-    margin-left: auto;
-    color: #cbcbd6;
+      strong {
+        font-size: 20px;
+        color: #3d3d3d;
+      }
+
+      p {
+        font-size: 18px;
+        color: #a8a8b3;
+        margin-top: 4px;
+      }
+    }
+
+    svg {
+      margin-left: auto;
+      color: #cbcbd6;
+    }
   }
 `;
