@@ -1,4 +1,6 @@
-import React, { useState, useEffect, FormEvent, useHistory } from 'react';
+import React, { useState, useEffect, FormEvent } from 'react';
+
+import { Link } from 'react-router-dom';
 
 // Icons
 import { FiChevronRight } from 'react-icons/fi';
@@ -13,9 +15,9 @@ import { Title, Form, Repositories, Error } from './styles';
 
 import api from '../../services/api';
 
-///////////////////////////////////////////////////////////////
+// /////////////////////////////////////////////////////////////
 
-//Interfaces
+// Interfaces
 interface Repository {
   full_name: string;
   description: string;
@@ -25,9 +27,9 @@ interface Repository {
   };
 }
 
-const Dashboard: React.FC = ({ history }) => {
+const Dashboard: React.FC = () => {
   // history
-  history = useHistory();
+
   // states
   const [Repo, setRepo] = useState('');
   const [inputError, setinputError] = useState('');
@@ -49,7 +51,7 @@ const Dashboard: React.FC = ({ history }) => {
     );
   }, [repositories]);
 
-  //functions
+  // functions
   async function handleAddRepository(
     e: FormEvent<HTMLFormElement>
   ): Promise<void> {
@@ -90,7 +92,10 @@ const Dashboard: React.FC = ({ history }) => {
 
       <Repositories>
         {repositories.map(repository => (
-          <a key={repository.full_name} href="teste">
+          <Link
+            key={repository.full_name}
+            to={`/repositories/${repository.full_name}`}
+          >
             <img
               src={repository.owner.avatar_url}
               alt={repository.owner.login}
@@ -101,7 +106,7 @@ const Dashboard: React.FC = ({ history }) => {
             </div>
 
             <FiChevronRight size={20} />
-          </a>
+          </Link>
         ))}
       </Repositories>
     </>
